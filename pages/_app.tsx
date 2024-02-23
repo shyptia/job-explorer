@@ -7,7 +7,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>JobExplorer</title>
+        <title>Job Explorer</title>
       </Head>
       <Layout>
         <Component {...pageProps} />
