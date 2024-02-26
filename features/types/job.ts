@@ -4,14 +4,14 @@ type ApplyOption = {
   is_direct: boolean;
 };
 
-type RequiredExperience = {
+export type RequiredExperience = {
   no_experience_required: boolean;
   required_experience_in_months: number | null;
   experience_mentioned: boolean;
   experience_preferred: boolean;
 };
 
-type RequiredEducation = {
+export type RequiredEducation = {
   postgraduate_degree: boolean;
   professional_certification: boolean;
   high_school: boolean;
@@ -22,7 +22,7 @@ type RequiredEducation = {
   professional_certification_mentioned: boolean;
 };
 
-type JobHighlights = {
+export type JobHighlights = {
   Qualifications?: string[];
   Responsibilities?: string[];
   Benefits?: string[];
