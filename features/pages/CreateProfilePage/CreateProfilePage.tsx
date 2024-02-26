@@ -3,6 +3,7 @@ import { Formik, Form } from "formik";
 import { FormField } from "@/features/components/FormField";
 import { CreateProfileSchema } from "./schema";
 import { getLocalStorageItem } from "./getLocalStorageItem";
+import { PageLayout } from "@/features/components/PageLayout";
 
 const NAME_KEY = "name";
 const JOB_TITLE_KEY = "desiredJobTitle";
@@ -18,9 +19,7 @@ export function CreateProfilePage() {
   const [isEditing, setIsEditing] = useState(false);
 
   return (
-    <div className="flex flex-col items-center">
-      <h1 className="text-2xl font-semibold mb-4">Create Profile</h1>
-
+    <PageLayout title="Create Profile">
       <Formik
         initialValues={initialValues}
         validationSchema={CreateProfileSchema}
@@ -72,6 +71,6 @@ export function CreateProfilePage() {
           </Form>
         )}
       </Formik>
-    </div>
+    </PageLayout>
   );
 }

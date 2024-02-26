@@ -1,21 +1,19 @@
 import { JobList } from "@/features/components/JobList.tsx";
+import { PageLayout } from "@/features/components/PageLayout";
 import { routesPathnames } from "@/features/routes";
 import { useLikedJobsStore } from "@/features/zustand";
-import clsx from "clsx";
 import Link from "next/link";
 
 export function LikedJobsPage() {
   const { likedJobs } = useLikedJobsStore();
 
   return (
-    <div
-      className={clsx(
-        "h-full",
-        likedJobs.length === 0 && "flex items-center justify-center"
-      )}
+    <PageLayout
+      title="Preferred Jobs"
+      className="pb-10"
     >
       {likedJobs.length === 0 ? (
-        <h2 className="text-gray-20 text-center text-2xl font-bold">
+        <h2 className="text-gray-20 text-center text-2xl font-semibold">
           You haven&apos;t liked any jobs yet. Please visit the{" "}
           <Link href={routesPathnames.jobs} className="text-blue-10 underline">
             job listings page
@@ -23,13 +21,8 @@ export function LikedJobsPage() {
           and select the ones you like.
         </h2>
       ) : (
-        <>
-          <h1 className="text-center text-3xl font-bold mb-8">
-            Preferred Job Listings
-          </h1>
-          <JobList jobsData={likedJobs} />
-        </>
+        <JobList jobsData={likedJobs} />
       )}
-    </div>
+    </PageLayout>
   );
 }
