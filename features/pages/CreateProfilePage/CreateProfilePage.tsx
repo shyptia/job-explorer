@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Formik, Form } from "formik";
-import { FormField } from "@/features/components/FormField";
+import { FormInput, FormTextarea } from "@/features/components/FormFields";
 import { CreateProfileSchema } from "./schema";
 import { getLocalStorageItem } from "./getLocalStorageItem";
 import { PageLayout } from "@/features/components/PageLayout";
@@ -34,18 +34,17 @@ export function CreateProfilePage() {
       >
         {({ isValid }) => (
           <Form className="space-y-5 flex flex-col items-center">
-            <FormField label="Name" name="name" disabled={!isEditing} />
+            <FormInput label="Name" name="name" disabled={!isEditing} />
 
-            <FormField
+            <FormInput
               label="Desired Job Title"
               name="desiredJobTitle"
               disabled={!isEditing}
             />
 
-            <FormField
+            <FormTextarea
               label="About me"
               name="aboutMe"
-              as="textarea"
               disabled={!isEditing}
             />
 
